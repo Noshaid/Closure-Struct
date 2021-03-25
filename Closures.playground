@@ -1,0 +1,34 @@
+import UIKit
+
+
+struct Calculator {
+    var a: Int
+    var b: Int
+    
+    var sum: Int {
+        return a + b
+    }
+}
+
+var calculator = Calculator(a: 3, b: 5)
+print("The result is \(calculator.sum)")
+calculator = Calculator(a: 33, b: 55)
+print("The result is \(calculator.sum)")
+
+
+var calculator1 = Calculator(a: 3, b: 5)
+let closure = {
+    calculator1 = Calculator(a: 33, b: 55)
+    print("The closure result is \(calculator1.sum)")
+}
+
+let closure2 = { [calculator1] in
+    print("The closure result is \(calculator1.sum)")
+}
+
+
+closure()
+closure2()
+
+
+//https://ohmyswift.com/blog/2020/01/10/why-should-we-avoid-using-closures-in-swift-structs/
